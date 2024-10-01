@@ -2,33 +2,40 @@ import React from 'react';
 import { Paper, Typography, Box } from '@mui/material';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineDot, TimelineConnector, TimelineContent, TimelineOppositeContent } from '@mui/lab';
 import Tags from '../Tags/Tags';
+import { styled } from '@mui/material/styles';
 
 const CustomTimeline = (props) => {
     const { items } = props || {};
 
+    const GradientTimelineConnector = styled(TimelineConnector)(({ color1, color2 }) => ({
+        background: `linear-gradient(135deg, ${color1}, #f6f6f6 50%, ${color2})`,
+        width: '4px'
+      }));
+
     return (
         <Timeline position="alternate">
-            {items.map((item) => {
-                const { id, date, icon, title, company, description, tags } = item || {};
+            {items.map((item,index) => {
+                const { id, date, icon, title, company, description, tags, exp_color } = item || {};
+                const nextItem = items[index + 1]
                 return (
                     <TimelineItem key={id}>
                         <TimelineOppositeContent sx={{ m: 'auto 0' }} variant="body2" color="textSecondary">
                             {date}
                         </TimelineOppositeContent>
                         <TimelineSeparator>
-                            <TimelineDot sx={{ backgroundColor: '#263238', width: 48, height: 48, border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <TimelineDot sx={{ backgroundColor: exp_color, width: 48, height: 48, border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Box sx={{ fontSize: '24px', color: '#FFFFFF' }}>
                                     {icon}
                                 </Box>
                             </TimelineDot>
-                            <TimelineConnector sx={{ backgroundColor: '#263238' }} />
-                        </TimelineSeparator>
+                            {nextItem && (<GradientTimelineConnector color1 ={item.exp_color}   color2={nextItem.exp_color}/>                         
+                        )}</TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                             <Paper
                                 elevation={2}
                                 sx={{
                                     p: 2,
-                                    background: 'linear-gradient(135deg, #f5f5f5 30%, #e8e8e8 90%)',
+                                    background: index % 2 === 0 ? `linear-gradient(135deg, #f5f5f5 30%, ${exp_color})` : `linear-gradient(225deg, #f5f5f5 30%, ${exp_color})`,
                                     borderRadius: '12px',
                                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
                                     transition: 'transform 0.2s ease-in-out',
