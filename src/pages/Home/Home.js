@@ -17,9 +17,9 @@ const Home = () => {
                         <Box sx={{ textAlign: 'center', mt: 2 }}>
                             <DynamicTyping titles={homeConfig.titles} />
                         </Box>
-                        <Box sx={{ mt: 4 }}>
+                        {/* <Box sx={{ mt: 4 }}>
                             <About about={homeConfig.about} />
-                        </Box>
+                        </Box> */}
                     </Grid2>
                 </Grid2>
             </Container>

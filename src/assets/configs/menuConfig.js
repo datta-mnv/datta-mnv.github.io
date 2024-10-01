@@ -13,7 +13,7 @@ const menuConfig = {
       icon: <AiFillHome size={35} />,
       className: "nav-text",
     },
-    {
+    /* {
       id: "menu-1",
       title: "Projects",
       path: "/projects",
@@ -26,7 +26,7 @@ const menuConfig = {
       path: "/blogs",
       icon: <BsMedium size={35} />,
       className: "nav-text",
-    },
+    }, */
     {
       id: "menu-3",
       title: "Skills",

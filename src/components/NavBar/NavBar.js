@@ -5,7 +5,7 @@ import NavBarItems from './NavBarItems';
 const NavBar = () => {
     return (
         <>
-            <AppBar position="fixed" sx={{ backgroundColor: '#263238', zIndex: 1400 }}>
+            <AppBar position="fixed" sx={{ backgroundColor: '#000000', zIndex: 1400 }}>
                 <Toolbar sx={{ justifyContent: 'start' }}>
                     <NavBarItems />
                 </Toolbar>

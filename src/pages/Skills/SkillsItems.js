@@ -8,7 +8,7 @@ const SkillsItems = (props) => {
                 <Box
                     key={item.id}
                     sx={{
-                        color: '#263238',
+                        color: '#000',
                         textAlign: 'center',
                         padding: '1.5rem',
                         backgroundColor: '#ffffff',
